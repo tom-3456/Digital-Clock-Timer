@@ -76,8 +76,6 @@
     <button id="start-timer">Start</button>
   </div>
   <style>
-    /* Same CSS as your original code */
-    /* Add some margin for timer controls */
     html,body{
       overflow: hidden;
       user-select: none;
@@ -128,27 +126,6 @@
   </style>
 
   <script>
-    /*
-    if (!("Notification" in window)) {
-      console.log("This browser does not support notifications.");
-    }
-    if (Notification.permission === 'default') {
-      Notification.requestPermission().then(permission => {
-        console.log(permission);
-        var permission = permission;
-        if (permission == "granted") {
-          console.log('Notification permission granted.');
-          timerEnd(permission);
-        } 
-        else {
-          alert('Notification permission denied.');
-        }
-      });
-    }
-    else {
-      timerEnd();
-    }
-    */
 
     interrupt = false;
 
@@ -165,18 +142,6 @@
       [1, 2, 7, 3, 6]
     ];
     
-    /*
-    function timerEnd(permission) {
-      
-      if (permission === 'granted') {
-          console.log('Notification permission granted.');
-      } 
-      else if (permission === 'denied') {
-          alert('Notifications are blocked. Please enable them in your browser settings.');
-      }
-    }
-    */
-    
       document.addEventListener('DOMContentLoaded', function() {
         
         var _hours = document.querySelectorAll('.hours');
@@ -188,8 +153,8 @@
             var date = new Date();
             var hours = date.getHours(), minutes = date.getMinutes(), seconds = date.getSeconds();  
         
-            setNumber(_hours[0], Math.floor((hours-1)/10), 1);
-            setNumber(_hours[1], (hours-1)%10, 1);
+            setNumber(_hours[0], Math.floor((hours)/10), 1);
+            setNumber(_hours[1], (hours)%10, 1);
 
             setNumber(_minutes[0], Math.floor(minutes/10), 1);
             setNumber(_minutes[1], minutes%10, 1);
